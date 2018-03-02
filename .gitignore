@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+*.DS_Store
+.AppleDouble
+.LSOverride
+.idea
+node_modules/
