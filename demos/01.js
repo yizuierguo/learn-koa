@@ -6,5 +6,9 @@
  */
 const Koa = require('koa');
 const app = new Koa();
-
+app.use(async (ctx) => {
+	ctx.body = 'hello koa!';
+	console.log(ctx.response);
+});
 app.listen(3000);
+console.log('app is runing at port 3000');
