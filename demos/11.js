@@ -1,20 +1,20 @@
 const Koa = require('koa');
 const app = new Koa();
 const fs = require('fs');
-app.use(async(ctx)=>{
-    let url = ctx.url;
-    let html = await router(url);
-    ctx.body = html;
+app.use(async (ctx) => {
+	let url = ctx.url;
+	let html = await router(url);
+	ctx.body = html;
 });
-//´¦ÀíÂ·ÓÉ
+//å¤„ç†è·¯ç”±
 async function router(url) {
 	let page = '404.html';
-	switch(url){
+	switch (url) {
 		case '/':
-			page ='index.html';
+			page = 'index.html';
 			break;
 		case '/index':
-			page ='index.html';
+			page = 'index.html';
 			break;
 		case '/todo':
 			page = 'todo.html';
@@ -29,20 +29,20 @@ async function router(url) {
 	console.log(html);
 	return html;
 }
-//½âÎöhtmlµ½ÎÄ¼þ
+//è§£æžhtmlåˆ°æ–‡ä»¶
 function render(page) {
-    return new Promise((resolve, reject) => {
+	return new Promise((resolve, reject) => {
 		let pageUrl = `./pages/${page}`;
-		fs.readFile(pageUrl,"binary",(err,data)=>{
+		fs.readFile(pageUrl, "binary", (err, data) => {
 			console.log(444);
-			if(err){
+			if (err) {
 				reject(err)
-			}else{
+			} else {
 				resolve(data);
 			}
 		})
-    });
+	});
 }
-app.listen(3000,()=>{
-    console.log('300 port!');
+app.listen(3000, () => {
+	console.log('300 port!');
 });
